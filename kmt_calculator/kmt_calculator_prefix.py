@@ -12,7 +12,7 @@ class CalculatorPrefix(object):
         self._logger = Logging().create_logger(logger_name="CalculatorPrefix", logger_level=logger_level)
         self._logger.info("Initialise Prefix Calculator")
         self._stack = []
-        self._operands = {
+        self._operators = {
             "+": operator.add,
             "-": operator.sub,
             "*": operator.mul,
@@ -36,14 +36,33 @@ class CalculatorPrefix(object):
         """
 
         self._logger.info(f"Evaluating: {prefix_expression}")
+        self._clear_stack()
         prefix_expression = self._split_and_reverse_expression(prefix_expression)
         print(prefix_expression)
         for element in prefix_expression:
             
-            if element not in self._operands:
-                self._stack.append(element)
+            if element not in self._operators:
+                self._stack.append(int(element))
             else:
-                pass
+                self._perform_prefix_operation(element)
+
+        if len(self._stack) == 1:
+            return self._stack.pop()
+
+        else:
+            self._logger.error(f"Invalid prefix expression: {prefix_expression}")
+
+    def _perform_prefix_operation(self, operator: str):
+        """Calculates the operation between the last two elements in the stack 
+        and appends the output to the stack
+
+        Args:
+            operator (str): One of "+", "-", "*" or "/"
+        """
+        operator_function = self._operators[operator]
+        element_1 = self._stack.pop()
+        element_2 = self._stack.pop()
+        self._stack.append(operator_function(element_1, element_2))
 
     @staticmethod
     def _split_and_reverse_expression(prefix_expression: str) -> list:
@@ -58,3 +77,7 @@ class CalculatorPrefix(object):
         prefix_expression = prefix_expression.split(" ")
         prefix_expression.reverse()
         return prefix_expression
+
+    @staticmethod
+    def _clear_stack():
+        self._stack = []
