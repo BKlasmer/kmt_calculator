@@ -38,7 +38,6 @@ class CalculatorPrefix(object):
         self._logger.info(f"Evaluating: {prefix_expression}")
         self._clear_stack()
         prefix_expression = self._split_and_reverse_expression(prefix_expression)
-        print(prefix_expression)
         for element in prefix_expression:
             
             if element not in self._operators:
@@ -64,6 +63,9 @@ class CalculatorPrefix(object):
         element_2 = self._stack.pop()
         self._stack.append(operator_function(element_1, element_2))
 
+    def _clear_stack(self):
+        self._stack = []
+
     @staticmethod
     def _split_and_reverse_expression(prefix_expression: str) -> list:
         """Splits the prefix expression and reverses the order of the elements
@@ -77,7 +79,3 @@ class CalculatorPrefix(object):
         prefix_expression = prefix_expression.split(" ")
         prefix_expression.reverse()
         return prefix_expression
-
-    @staticmethod
-    def _clear_stack():
-        self._stack = []
