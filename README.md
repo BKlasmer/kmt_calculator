@@ -1,6 +1,6 @@
 # Prefix and Infix Calculator
 
-This codebase is implements prefix and infix calculators.
+This codebase implements prefix and infix calculators.
 
 ## Creating & using the virtual environment
 - First, check that you satisfy the [Dependencies](#dependencies) for this project.
