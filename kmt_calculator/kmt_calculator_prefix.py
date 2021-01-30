@@ -7,6 +7,7 @@ from kmt_calculator.utils import Logging
 """ Calculator to process prefix notation (e.g + * 1 2 3)
 """
 
+
 class CalculatorPrefix(object):
     def __init__(self, logger_level: str = "INFO") -> None:
         self._logger = Logging().create_logger(logger_name="CalculatorPrefix", logger_level=logger_level)
@@ -39,7 +40,7 @@ class CalculatorPrefix(object):
         self._clear_stack()
         prefix_expression = self._split_and_reverse_expression(prefix_expression)
         for element in prefix_expression:
-            
+
             if element not in self._operators:
                 self._stack.append(int(element))
             else:
@@ -52,7 +53,7 @@ class CalculatorPrefix(object):
             self._logger.error(f"Invalid prefix expression: {prefix_expression}")
 
     def _perform_prefix_operation(self, operator: str):
-        """Calculates the operation between the last two elements in the stack 
+        """Calculates the operation between the last two elements in the stack
         and appends the output to the stack
 
         Args:
