@@ -1,6 +1,6 @@
 # Prefix and Infix Calculator
 
-This codebase is implementing prefix and infix calculators.
+This codebase is implements prefix and infix calculators.
 
 ## Creating & using the virtual environment
 - First, check that you satisfy the [Dependencies](#dependencies) for this project.
@@ -54,12 +54,12 @@ This codebase is implementing prefix and infix calculators.
   ```
 
 ## Dependencies
-Due to limitation with Python Virtual Environment, some libraries must be installed on the
-base machine. This code will then create symbolic link with the virtual environment.
+Due to limitation with Python Virtual Environment, some libraries must first be installed on the
+base machine.
 ### Python 3
 Supported versions: from 3.6 (included) to 3.8 (excluded). (_This is due to an old version of numpy_)
 
-On latest Mac you need to downgrade your python version:
+On latest Mac you may need to downgrade your python version:
 ```bash
 foo@bar:~$ brew install python@3.7
   ```
