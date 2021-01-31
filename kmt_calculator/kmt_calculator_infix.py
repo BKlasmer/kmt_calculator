@@ -23,11 +23,27 @@ class CalculatorInfix(CalculatorPrefix):
         }
 
     def parse_infix_expression(self, infix_expression: str) -> int:
+        """Computes the infix expression by converting it to prefix form.
+
+        Args:
+            infix_expression (str): A space seperated infix expression (e.g "( 1 + ( 2 * 3 ) )")
+
+        Returns:
+            int: Result (e.g 7)
+        """
 
         prefix_expression = self.convert_infix_to_prefix(infix_expression)
         return self.parse_prefix_expression(prefix_expression)
 
     def convert_infix_to_prefix(self, infix_expression: str) -> str:
+        """Converts an infix expression to a prefix expression
+
+        Args:
+            infix_expression (str): A space seperated infix expression (e.g "( 1 + ( 2 * 3 ) )")
+
+        Returns:
+            str: A space seperated prefix expression (e.g "+ 1 * 2 3")
+        """
         
         self._logger.info(f"Converting: {infix_expression}")
         self._clear_stack()
@@ -65,6 +81,11 @@ class CalculatorInfix(CalculatorPrefix):
         self._stack.append(f"{operator} {element_1} {element_2}")
 
     def _apply_right_parentheses_logic(self) -> None:
+        """When a closed parenthesis is parsed:
+        1. Check if an open parenthesis exists in stack - if not log it as an error.
+        2. Apply the _apply_operation method (see above).
+        3. If the last element in the operator stack isn't an open parenthesis then log it as an error.
+        """
 
         if "(" not in self._operator_stack:
             self._logger.error("Incorrect infix expression - no open parenthesis before closed parenthesis")
