@@ -32,3 +32,21 @@ def test_apply_operation_no_parentheses():
     # Verify
     assert actual == desired
     # Cleanup - none necessary
+
+def test_apply_right_parentheses_logic():
+    # Setup
+    desired_stack = ['+ 1 2']
+    desired_operator_stack = []
+
+    # Exercise
+    CalcInfix = CalculatorInfix()
+    CalcInfix._stack = ["1", "2"]
+    CalcInfix._operator_stack = ["(", "+"]
+    CalcInfix._apply_right_parentheses_logic()
+    actual_stack = CalcInfix._stack
+    actual_operator_stack = CalcInfix._operator_stack
+
+    # Verify
+    assert actual_stack == desired_stack
+    assert actual_operator_stack == desired_operator_stack
+    # Cleanup - none necessary
