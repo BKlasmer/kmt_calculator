@@ -52,7 +52,7 @@ class CalculatorPrefix(object):
         else:
             self._logger.error(f"Invalid prefix expression: {prefix_expression}")
 
-    def _perform_prefix_operation(self, operator: str):
+    def _perform_prefix_operation(self, operator: str) -> None:
         """Calculates the operation between the last two elements in the stack
         and appends the output to the stack
 
