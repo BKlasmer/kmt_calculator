@@ -44,7 +44,7 @@ class CalculatorInfix(CalculatorPrefix):
         Returns:
             str: A space seperated prefix expression (e.g "+ 1 * 2 3")
         """
-        
+
         self._logger.info(f"Converting: {infix_expression}")
         self._clear_stack()
         for element in infix_expression.split(" "):
@@ -61,7 +61,6 @@ class CalculatorInfix(CalculatorPrefix):
         if len(self._stack) == 1:
             self._logger.info(f"Converted: {infix_expression} to {self._stack[0]}")
             return self._stack.pop()
-
 
     def _apply_operation_no_parentheses(self) -> None:
         """In case of expressions that include a mixture of parentheses or no parentheses (e.g 1 + 2):

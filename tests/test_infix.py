@@ -18,9 +18,10 @@ def test_inheritance():
     assert all([a == b for a, b in zip(actual, desired)])
     # Cleanup - none necessary
 
+
 def test_apply_operation_no_parentheses():
     # Setup
-    desired = ['+ 1 2']
+    desired = ["+ 1 2"]
 
     # Exercise
     CalcInfix = CalculatorInfix()
@@ -33,9 +34,10 @@ def test_apply_operation_no_parentheses():
     assert actual == desired
     # Cleanup - none necessary
 
+
 def test_apply_right_parentheses_logic():
     # Setup
-    desired_stack = ['+ 1 2']
+    desired_stack = ["+ 1 2"]
     desired_operator_stack = []
 
     # Exercise
@@ -50,6 +52,7 @@ def test_apply_right_parentheses_logic():
     assert actual_stack == desired_stack
     assert actual_operator_stack == desired_operator_stack
     # Cleanup - none necessary
+
 
 def test_parse_infix_expression():
     # Setup
