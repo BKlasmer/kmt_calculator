@@ -34,3 +34,12 @@ class CalculatorInfix(CalculatorPrefix):
                 self._operator_stack.append(element)
             else:
                 self._stack.append(element)
+                self._apply_operation_no_parenthesis()
+
+
+    def _apply_operation_no_parentheses(self) -> None:
+        if len(self._stack) == 2 and "(" not in self._operator_stack:
+            element_2 = self._stack.pop()
+            element_1 = self._stack.pop()
+            operator = self._operator_stack.pop()
+            self._stack.append(f"{operator} {element_1} {element_2}") 
