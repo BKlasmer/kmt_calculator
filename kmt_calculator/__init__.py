@@ -1,1 +1,2 @@
 from .kmt_calculator_prefix import CalculatorPrefix
+from .kmt_calculator_infix import CalculatorInfix

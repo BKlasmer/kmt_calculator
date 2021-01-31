@@ -3,7 +3,7 @@
 
 from kmt_calculator import CalculatorPrefix
 
-""" Example boilerplate file
+""" Unit tests for CalculatorPrefix class
 """
 
 
