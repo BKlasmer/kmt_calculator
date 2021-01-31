@@ -22,6 +22,11 @@ class CalculatorInfix(CalculatorPrefix):
             "/": operator.floordiv,
         }
 
+    def parse_infix_expression(self, infix_expression: str) -> int:
+
+        prefix_expression = self.convert_infix_to_prefix(infix_expression)
+        return self.parse_prefix_expression(prefix_expression)
+
     def convert_infix_to_prefix(self, infix_expression: str) -> str:
         
         self._logger.info(f"Converting: {infix_expression}")

@@ -50,3 +50,16 @@ def test_apply_right_parentheses_logic():
     assert actual_stack == desired_stack
     assert actual_operator_stack == desired_operator_stack
     # Cleanup - none necessary
+
+def test_parse_infix_expression():
+    # Setup
+    desired = [3, 7, 5, -2]
+
+    # Exercise
+    expressions = ["( 1 + 2 )", "( 1 + ( 2 * 3 ) )", "( ( 1 * 2 ) + 3 )", "( ( ( 1 + 1 ) / 10 ) - ( 1 * 2 ) )"]
+    CalcInfix = CalculatorInfix()
+    actual = [CalcInfix.parse_infix_expression(expression) for expression in expressions]
+
+    # Verify
+    assert all([a == b for a, b in zip(actual, desired)])
+    # Cleanup - none necessary
