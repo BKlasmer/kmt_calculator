@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: latin-1 -*-
 
 import operator
 from kmt_calculator.utils import Logging

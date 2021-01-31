@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-# -*- coding: latin-1 -*-
 
 from kmt_calculator import CalculatorPrefix
 
