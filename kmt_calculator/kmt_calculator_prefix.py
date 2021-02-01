@@ -46,6 +46,7 @@ class CalculatorPrefix(object):
                 self._perform_prefix_operation(element)
 
         if len(self._stack) == 1:
+            self._logger.info(f"Output: {self._stack[0]}")
             return self._stack.pop()
 
         else:
