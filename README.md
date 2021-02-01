@@ -1,6 +1,20 @@
 # Prefix and Infix Calculator
 
-This codebase implements prefix and infix calculators.
+This codebase implements prefix and infix calculators. Before running the test cases, please ensure you have read the instructions below. The test cases can be found in the notebook and the tests directory. Part 3 can be tested with the following instructions:
+
+- Open a terminal in the root of the module, make sure you are on the virtual environment and run the following:
+  ```bash
+  foo@bar:~$ python3 -m kmt_calculator.utils.webservice
+  ```
+- You should see a Flask app starting up. You should be presented with a welcome message if you go to http://localhost:5000/calculator
+- Now open a new terminal from which you can test the infix calculator by running the following:
+  ```bash
+  foo@bar:~$ curl -i -H "Content-Type: application/json" -X POST -d '{"expression": "( 1 + 2 )"}' http://localhost:5000//calculator/infix
+  ```
+- And you can test the prefix calculator by running the following:
+  ```bash
+  foo@bar:~$ curl -i -H "Content-Type: application/json" -X POST -d '{"expression": "+ * 1 2 3"}' http://localhost:5000//calculator/prefix
+  ```
 
 ## Creating & using the virtual environment
 - First, check that you satisfy the [Dependencies](#dependencies) for this project.
@@ -8,7 +22,7 @@ This codebase implements prefix and infix calculators.
   ```bash
   foo@bar:~$ ./provisioning/provision_venv.sh
   ```
-- If you want to work on it, you can run (from the base of the module):
+- To work on the environment, you can run (from the base of the module):
   ```bash
   foo@bar:~$ source ./venv/bin/activate
   ```
@@ -16,13 +30,13 @@ This codebase implements prefix and infix calculators.
   ```bash
   foo@bar:~$ deactivate
   ```
-- You can create the virtual environment in another location by supplying it as the first input parameters (this is useful when deploying this software in production):
+- You can create the virtual environment in another location by supplying it as the first input parameters:
   ```bash
   foo@bar:~$ ./provisioning/provision_venv.sh /some/other/path/
   ```
 
 ## Jupyter Notebooks
-- First build and activate the virtual environment as shown in [Jupyter Notebooks](#Jupyter Notebooks)
+- First build and activate the virtual environment as shown in [Creating & using the virtual environment](#Creating-&-using-the-virtual-environment)
   ```bash
   foo@bar:~$ ./provisioning/provision_venv.sh
   foo@bar:~$ source ./venv/bin/activate
@@ -35,7 +49,7 @@ This codebase implements prefix and infix calculators.
   ```bash
   foo@bar:~$ jupyter notebook
   ```
-- now, a new page in your browser will open where you can create and run Jupyter Notebooks with the module
+- A new page in your browser will open where you can create and run Jupyter Notebooks with the module
 
 
 ## Packaging
@@ -57,7 +71,7 @@ This codebase implements prefix and infix calculators.
 Due to limitation with Python Virtual Environment, some libraries must first be installed on the
 base machine.
 ### Python 3
-Supported versions: from 3.6 (included) to 3.8 (excluded). (_This is due to an old version of numpy_)
+Supported versions: from 3.6 (included) to 3.8 (excluded).
 
 On latest Mac you may need to downgrade your python version:
 ```bash
